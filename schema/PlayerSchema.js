@@ -16,15 +16,9 @@ const playerSchema = new Schema({
         enum: ['dead', 'alive'],
         default: 'alive'
     },
-    missions: [
-        {
-            type: Schema.Types.ObjectID,
-            ref: "mission"
-        },
-        {
-            type: Boolean,
-            default: false
-        }
-    ]
+    user: {
+        type: Schema.ObjectID,
+        ref: 'User'
+    }
 });
 module.exports = new mongoose.model('Player', playerSchema);

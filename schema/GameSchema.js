@@ -4,30 +4,20 @@ const Schema = mongoose.Schema;
 const GameSchema = new Schema({
     players: [
         {
-            type: Schema.Types.ObjectID,
+            type: Schema.ObjectID,
             ref: 'player'
         }
     ],
-    cooldown: {
-        type: Number,
-        required: true,
-        default: 45
+    configurations: {
+        type: Schema.ObjectID,
+        ref: 'configuration'
     },
-    nbPlayers: {
-        type: Number,
-        required: true,
-        default: 10
-    },
-    totalMissions: {
-        type: Number,
-        required: true,
-        default: 15
-    },
-    nbImposter: {
-        type: Number,
-        required: true,
-        default: 2
-    }
+    missions: [
+        {
+            type: Schema.ObjectID,
+            ref: 'playerMission'
+        }
+    ]
 });
 
 module.exports = new mongoose.model('game', GameSchema);
