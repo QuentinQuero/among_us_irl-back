@@ -25,7 +25,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../SoccerManager/SoccerManagerBack" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -45,6 +45,7 @@
       <updated>1603705810124</updated>
       <workItem from="1603705811552" duration="2272000" />
       <workItem from="1604306172644" duration="4512000" />
+      <workItem from="1604330485844" duration="134000" />
     </task>
     <servers />
   </component>

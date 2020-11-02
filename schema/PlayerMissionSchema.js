@@ -4,11 +4,11 @@ const Schema = mongoose.Schema;
 const playerMissionSchema = new Schema({
    player: {
        type: Schema.ObjectID,
-       ref: "players"
+       ref: "Players"
    },
    mission: {
      type: Schema.ObjectID,
-     ref: "missions"
+     ref: "Missions"
    },
    status: {
        type: String,

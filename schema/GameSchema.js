@@ -5,19 +5,19 @@ const GameSchema = new Schema({
     players: [
         {
             type: Schema.ObjectID,
-            ref: 'player'
+            ref: 'Player'
         }
     ],
     configurations: {
         type: Schema.ObjectID,
-        ref: 'configuration'
+        ref: 'Configuration'
     },
     missions: [
         {
             type: Schema.ObjectID,
-            ref: 'playerMission'
+            ref: 'PlayerMission'
         }
     ]
 });
 
-module.exports = new mongoose.model('game', GameSchema);
+module.exports = new mongoose.model('Game', GameSchema);
