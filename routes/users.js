@@ -1,9 +1,10 @@
-var express = require('express');
-var router = express.Router();
+'use strict'
+const express = require('express');
+const router = express.Router();
+const userController = require('../controllers/UserControllers');
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
+router.post('/login', userController.login);
+router.post('/signup', userController.signup);
+router.get('/isEmailUsed', userController.isUsedEmail);
 
 module.exports = router;

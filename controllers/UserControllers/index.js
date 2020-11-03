@@ -2,5 +2,6 @@
 
 module.exports= {
     'signup': require('./signup'),
-    'signin': require('./signin')
+    'login': require('./login'),
+    'isUsedEmail': require('./isUsedEmail')
 };
