@@ -17,7 +17,11 @@ const GameSchema = new Schema({
             type: Schema.ObjectID,
             ref: 'PlayerMission'
         }
-    ]
+    ],
+    accessCode: {
+        type: String,
+        required: true
+    }
 });
 
 module.exports = new mongoose.model('Game', GameSchema);
