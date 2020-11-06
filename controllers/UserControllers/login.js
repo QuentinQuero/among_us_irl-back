@@ -6,12 +6,16 @@ const boom = require('@hapi/boom');
 const login = function (req, res, next) {
     console.log('UserController - login - start');
     UserService.logUser(req.body.email, req.body.password)
-        .then((token) => {
+        .then((response) => {
             console.log('UserController - login - end');
             res.json({
                 status: 'success',
                 message: 'You logged successfully',
-                jwt: token
+                jwt: response.token,
+                user: {
+                    email: response.user.email,
+                    role: response.user.role
+                }
             });
         })
         .catch((error) => {
