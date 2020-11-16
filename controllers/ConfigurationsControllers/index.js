@@ -2,5 +2,6 @@
 
 module.exports= {
     'searchConfigurations': require('./searchConfigurations'),
-    'createConfiguration': require('./createConfiguration')
+    'createConfiguration': require('./createConfiguration'),
+    'getConfigurationForSelect': require('./getConfigurationForSelect')
 };

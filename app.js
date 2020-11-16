@@ -5,6 +5,7 @@ const logger = require('morgan');
 const cors = require('cors');
 const usersRouter = require('./routes/users');
 const configurationRouter = require('./routes/configurations');
+const gamesRouter = require('./routes/games');
 
 const app = express();
 
@@ -19,4 +20,5 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/users', usersRouter);
 app.use('/configurations', configurationRouter);
+app.use('/games', gamesRouter);
 module.exports = app;

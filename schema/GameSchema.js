@@ -4,17 +4,17 @@ const Schema = mongoose.Schema;
 const GameSchema = new Schema({
     players: [
         {
-            type: Schema.ObjectID,
+            type: Schema.Types.ObjectID,
             ref: 'Player'
         }
     ],
     configurations: {
-        type: Schema.ObjectID,
+        type: Schema.Types.ObjectID,
         ref: 'Configuration'
     },
     missions: [
         {
-            type: Schema.ObjectID,
+            type: Schema.Types.ObjectID,
             ref: 'PlayerMission'
         }
     ],

@@ -3,14 +3,17 @@
 const configurationService = require('../../services/ConfigurationsServices');
 
 const searchConfigurations = function (req, res, next) {
+    console.log('Configuration controller - searchConfiguration - begin');
     let filter = build (req.query.filters);
     configurationService.searchConfigurations(filter, req.query.pagination, req.query.sort.column , req.query.sort.order ).then((response) => {
+        console.log('Configuration controller - searchConfiguration - end');
         res.json({
             status: 'success',
             data: response.data,
             totalRow: response.totalRow
         });
     }).catch((error) => {
+        console.log('Configuration controller - searchConfiguration - error');
         res.json({
             status: 'error',
             error: error
