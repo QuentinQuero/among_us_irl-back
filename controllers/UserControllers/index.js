@@ -3,5 +3,6 @@
 module.exports= {
     'signup': require('./signup'),
     'login': require('./login'),
-    'isUsedEmail': require('./isUsedEmail')
+    'isUsedEmail': require('./isUsedEmail'),
+    'isAdmin': require('./isUserAdmin')
 };

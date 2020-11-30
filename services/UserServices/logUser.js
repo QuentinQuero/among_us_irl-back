@@ -12,7 +12,10 @@ const logUser = function (email, password) {
                 if (bcrypt.compareSync(password, user.password)) {
                     const token = jwt.sign({id: user._id}, process.env.secretKey, {expiresIn: '2h'});
                     console.log('User services - logUser - end');
-                    resolve(token);
+                    resolve({
+                        "token": token,
+                        "user": user
+                    });
                 } else {
                     console.error('User services - logUser - error: wrong password');
                     rejected('Wrong password');
