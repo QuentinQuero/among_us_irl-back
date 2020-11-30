@@ -1,5 +1,6 @@
 'use strict';
 
 module.exports = {
-    'isAuthenticated': require('./isAuthenticated')
+    'isAuthenticated': require('./isAuthenticated'),
+    'notInGame': require('./notInGame')
 };

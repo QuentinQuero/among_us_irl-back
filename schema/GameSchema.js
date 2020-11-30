@@ -21,7 +21,22 @@ const GameSchema = new Schema({
     accessCode: {
         type: String,
         required: true
+    },
+    status: {
+        type: String,
+        enum: ['init', 'in game', 'finished'],
+        default: 'init'
     }
 });
+
+const autoPopulateConfiguration = function (next) {
+    this.populate('configurations');
+    next();
+}
+
+GameSchema.
+    pre('find', autoPopulateConfiguration).
+    pre('findOne', autoPopulateConfiguration);
+
 
 module.exports = new mongoose.model('Game', GameSchema);

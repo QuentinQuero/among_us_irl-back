@@ -8,8 +8,8 @@ const getConfigurationForSelect = function (req, res, next) {
     configurationService.getAllConfiguration().then((configs) => {
         configs.forEach((config) => {
             optionList.push({
-                label: config.name,
-                id: config._id
+                text: config.name,
+                value: config._id
             });
         });
         console.log('Configuration Controller - getConfigurationForSelect - end');

@@ -3,5 +3,6 @@
 module.exports= {
     'searchConfigurations': require('./searchConfigurations'),
     'createConfiguration': require('./createConfiguration'),
-    'getAllConfiguration': require('./getAllConfiguration')
+    'getAllConfiguration': require('./getAllConfiguration'),
+    'getConfigurationById': require('./getConfigurationById')
 };
