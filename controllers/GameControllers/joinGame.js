@@ -10,10 +10,10 @@ const joinGame = function (req, res, next) {
             status: 'Success',
             message: 'Game joined'
         })
-    }).catch(() => {
+    }).catch((error) => {
         res.json({
-            status: 'Error',
-            message: 'Game not joined'
+            status: 'error',
+            message: error
         })
     });
 };

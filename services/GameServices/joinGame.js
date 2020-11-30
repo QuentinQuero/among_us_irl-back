@@ -10,10 +10,18 @@ const joinGame = function (user, gameAccessCode) {
                 console.log('Game service - joinGame - error');
                 reject('Game not found');
             } else {
-                game.players.push(user);
-                game.save();
-                console.log('Game service - joinGame - end');
-                resolve('user added to game');
+                if (game.status !== 'init') {
+                    reject('Game unavailable');
+                } else {
+                    if (game.players.length === game.configurations.nbPlayers) {
+                        reject('Game full');
+                    } else {
+                        game.players.push(user);
+                        game.save();
+                        console.log('Game service - joinGame - end');
+                        resolve('user added to game');
+                    }
+                }
             }
         });
     });

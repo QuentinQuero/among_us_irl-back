@@ -1,6 +1,5 @@
 'use strict';
 
-const boom = require('@hapi/boom');
 const gameSchema = require('../../schema/GameSchema');
 
 const notInGame = function (req, res, next) {
@@ -32,7 +31,7 @@ const notInGame = function (req, res, next) {
                 console.log('Security - notInGame - end - User is already in game')
                 res.json({
                     status: 'error',
-                    message: 'User is in game'
+                    message: 'You are already in a game'
                 });
             } else {
                 console.log('Security - notInGame - end');
