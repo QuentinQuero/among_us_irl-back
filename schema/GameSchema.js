@@ -34,6 +34,11 @@ const autoPopulateConfiguration = function (next) {
     next();
 }
 
+const autoPopulatePlayers = function (next) {
+    this.populate('players');
+    next();
+}
+
 GameSchema.
     pre('find', autoPopulateConfiguration).
     pre('findOne', autoPopulateConfiguration);

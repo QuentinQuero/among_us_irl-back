@@ -1,6 +1,7 @@
 'use strict';
 
 const gameSchema = require('../../schema/GameSchema');
+const playerSchema = require('../../schema/PlayerSchema');
 
 const notInGame = function (req, res, next) {
     console.log('Security - notInGame - begin');
@@ -21,9 +22,13 @@ const notInGame = function (req, res, next) {
             let found = false;
             let count = 0;
             while (!found && count < games.length) {
-                if (games[count].players.includes(req.currentUser._id)) {
-                    console.log('Security - notInGame - User is already in game');
-                    found = true;
+                let countPlayer = 0;
+                while (!found && countPlayer < games[count].players.length) {
+                    if (games[count].players[count].user = req.currentUser._id) {
+                        console.log('Security - notInGame - User is already in game');
+                        found = true;
+                    }
+                    countPlayer++;
                 }
                 count ++;
             }
