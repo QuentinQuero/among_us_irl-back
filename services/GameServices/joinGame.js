@@ -21,7 +21,11 @@ const joinGame = function (pseudo, user, gameAccessCode) {
                             game.players.push(player);
                             game.save();
                             console.log('GameService -joinGame -end');
-                            resolve('User added to game');
+                            resolve({
+                                message: 'User added to game',
+                                game: game,
+                                player: player
+                            });
                         }).catch((error) => {
                            console.log('Game service - join - error');
                            resolve('Error in player creation');

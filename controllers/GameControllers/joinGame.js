@@ -8,7 +8,9 @@ const joinGame = function (req, res, next) {
         console.log('Game Controller - joinGame - end');
         res.json({
             status: 'Success',
-            message: 'Game joined'
+            message: 'Game joined',
+            player: response.player,
+            game: response.game
         })
     }).catch((error) => {
         res.json({
