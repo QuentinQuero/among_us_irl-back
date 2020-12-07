@@ -1,8 +1,9 @@
 'use strict';
 
 const gameSchema = require('../../schema/GameSchema');
+const playerService = require('../PlayerServices');
 
-const joinGame = function (user, gameAccessCode) {
+const joinGame = function (pseudo, user, gameAccessCode) {
     console.log('Game service - joinGame - begin');
     return new Promise((resolve, reject) => {
         gameSchema.findOne({accessCode: gameAccessCode}).exec(function (err, game) {
@@ -16,10 +17,15 @@ const joinGame = function (user, gameAccessCode) {
                     if (game.players.length === game.configurations.nbPlayers) {
                         reject('Game full');
                     } else {
-                        game.players.push(user);
-                        game.save();
-                        console.log('Game service - joinGame - end');
-                        resolve('user added to game');
+                        playerService.createPlayer(pseudo, user).then((player) => {
+                            game.players.push(player);
+                            game.save();
+                            console.log('GameService -joinGame -end');
+                            resolve('User added to game');
+                        }).catch((error) => {
+                           console.log('Game service - join - error');
+                           resolve('Error in player creation');
+                        });
                     }
                 }
             }

@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema;
 
 const playerSchema = new Schema({
-    name: {
+    pseudo: {
         type: String,
         required: true
     },
@@ -17,8 +17,9 @@ const playerSchema = new Schema({
         default: 'alive'
     },
     user: {
-        type: Schema.ObjectID,
-        ref: 'User'
+        type: Schema.Types.ObjectID,
+        ref: 'USer'
     }
 });
+
 module.exports = new mongoose.model('Player', playerSchema);
