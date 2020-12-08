@@ -14,7 +14,7 @@ const notInGame = function (req, res, next) {
             console.log(err);
         }
         // case no games or all game terminated
-        if (games === null || games.length == 0) {
+        if (games === null || games.length === 0) {
             next();
         } else {
             // Browse each games
