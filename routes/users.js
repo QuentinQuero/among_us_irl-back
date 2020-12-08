@@ -8,5 +8,6 @@ router.post('/login', userController.login);
 router.post('/signup', userController.signup);
 router.get('/isEmailUsed', userController.isUsedEmail);
 router.get('/isAdmin', security.isAuthenticated, userController.isAdmin);
+router.get('/getPlayerAndActiveGame', security.isAuthenticated, userController.getUserPlayerAndActiveGame);
 
 module.exports = router;

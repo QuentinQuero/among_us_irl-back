@@ -24,18 +24,13 @@ const GameSchema = new Schema({
     },
     status: {
         type: String,
-        enum: ['init', 'in game', 'finished'],
+        enum: ['init', 'inGame', 'finished'],
         default: 'init'
     }
 });
 
 const autoPopulateConfiguration = function (next) {
     this.populate('configurations');
-    next();
-}
-
-const autoPopulatePlayers = function (next) {
-    this.populate('players');
     next();
 }
 
