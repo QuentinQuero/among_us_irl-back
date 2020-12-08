@@ -4,5 +4,6 @@ module.exports= {
     'signup': require('./signup'),
     'login': require('./login'),
     'isUsedEmail': require('./isUsedEmail'),
-    'isAdmin': require('./isUserAdmin')
+    'isAdmin': require('./isUserAdmin'),
+    'getUserPlayerAndActiveGame': require('./getUserPlayerAndActiveGame')
 };

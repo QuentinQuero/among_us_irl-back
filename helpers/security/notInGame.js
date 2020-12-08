@@ -1,16 +1,15 @@
 'use strict';
 
 const gameSchema = require('../../schema/GameSchema');
-const playerSchema = require('../../schema/PlayerSchema');
 
 const notInGame = function (req, res, next) {
     console.log('Security - notInGame - begin');
     gameSchema.find({
         $or: [
             { status: 'init' },
-            { status: 'in game' }
+            { status: 'inGame' }
         ]
-    }, function (err, games) {
+    }).populate('players').exec(function (err, games) {
         if (err) {
             console.log(err);
         }
@@ -24,7 +23,8 @@ const notInGame = function (req, res, next) {
             while (!found && count < games.length) {
                 let countPlayer = 0;
                 while (!found && countPlayer < games[count].players.length) {
-                    if (games[count].players[count].user = req.currentUser._id) {
+                    console.log(games[count].players[countPlayer]);
+                    if (games[count].players[countPlayer].user.equals(req.currentUser._id)) {
                         console.log('Security - notInGame - User is already in game');
                         found = true;
                     }
@@ -44,7 +44,7 @@ const notInGame = function (req, res, next) {
             }
         }
 
-    })
+    });
 
 }
 
