@@ -9,13 +9,13 @@ const joinGame = function (pseudo, user, gameAccessCode) {
         gameSchema.findOne({accessCode: gameAccessCode}).exec(function (err, game) {
             if (err || game == null) {
                 console.log('Game service - joinGame - error');
-                reject('Game not found');
+                reject('game_not_found');
             } else {
                 if (game.status !== 'init') {
-                    reject('Game unavailable');
+                    reject('game_unavailable');
                 } else {
                     if (game.players.length === game.configurations.nbPlayers) {
-                        reject('Game full');
+                        reject('game_full');
                     } else {
                         playerService.createPlayer(pseudo, user).then((player) => {
                             game.players.push(player);

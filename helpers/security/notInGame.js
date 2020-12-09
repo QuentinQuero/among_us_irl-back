@@ -36,7 +36,7 @@ const notInGame = function (req, res, next) {
                 console.log('Security - notInGame - end - User is already in game')
                 res.json({
                     status: 'error',
-                    message: 'You are already in a game'
+                    message: 'already_in_game'
                 });
             } else {
                 console.log('Security - notInGame - end');
