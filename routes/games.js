@@ -10,5 +10,6 @@ router.post('/create', security.isAuthenticated, gamesController.createGame);
 router.get('/join', security.isAuthenticated, security.notInGame, gamesController.joinGame);
 router.get('/leave', security.isAuthenticated, gamesController.leaveGame);
 router.get('/get/:id', security.isAuthenticated, gamesController.getGameDetails);
+router.put('/changeStatus', security.isAuthenticated, security.isAdmin, gamesController.changeGameStatus);
 
 module.exports = router;
