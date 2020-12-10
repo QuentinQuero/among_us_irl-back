@@ -1,7 +1,8 @@
 'use strict';
 
 const gameSchema = require('../../schema/GameSchema');
-const gameService = require('./index');
+const resetMissionList = require('./resetMissionList');
+const resetPlayerList = require('./resetPlayerList');
 
 const updateGameStatus = function (gameId) {
     console.log('Game service - updateGameStatus - begin')
@@ -24,8 +25,8 @@ const updateGameStatus = function (gameId) {
                        break;
                    case 'finished':
                        newStatus = 'init';
-                       gameService.resetMissionList(game._id).then(() => {
-                           gameService.resetPlayerList(game._id).then(() => {
+                       resetMissionList(game._id).then(() => {
+                           resetPlayerList(game._id).then(() => {
 
                            }).catch(() => {
                               console.log('gameService - updateGameStatus - error resetPlayerList');
