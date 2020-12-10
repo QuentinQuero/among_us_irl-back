@@ -4,5 +4,6 @@ module.exports = {
     'searchGames': require('./searchGames'),
     'createGame': require('./createGame'),
     'joinGame': require('./joinGame'),
-    'getGameDetails': require('./getGameDetails')
+    'getGameDetails': require('./getGameDetails'),
+    'leaveGame': require('./leaveGame')
 };
