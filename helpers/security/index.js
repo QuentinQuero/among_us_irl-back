@@ -2,5 +2,6 @@
 
 module.exports = {
     'isAuthenticated': require('./isAuthenticated'),
-    'notInGame': require('./notInGame')
+    'notInGame': require('./notInGame'),
+    'isAdmin': require('./isAdmin')
 };
